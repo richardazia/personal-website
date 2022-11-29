@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return 'Hello World';
+        return view('articles.index');
     }
 
     /**
@@ -35,7 +35,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+          'title' => 'required|string|max:300',
+          'content' => 'required|string|max:3000',
+        ]);
+
+        $request->user()->articles()->create($validated);
+
+        return redirect(route('articles.index'));
     }
 
     /**
