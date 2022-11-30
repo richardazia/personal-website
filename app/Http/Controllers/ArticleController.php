@@ -66,7 +66,11 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        $this->authorize('update', $article);
+
+        return view('articles.edit', [
+          'article' => $article,
+        ]);
     }
 
     /**
@@ -78,7 +82,16 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $this->authorize('update', $article);
+
+        $validated = $request->validate([
+          'title' => 'required|string|max:300',
+          'content' => 'required|string|max:3000',
+        ]);
+
+        $article->update($validated);
+
+        return redirect(route('articles.index'));
     }
 
     /**
