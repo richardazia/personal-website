@@ -6,12 +6,17 @@
                 name="title"
                 placeholder="{{ __('The Title goes here.') }}"
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-            >{{ old('message') }}</textarea>
+            >{{ old('title') }}</textarea>
+            <textarea
+                name="description"
+                placeholder="{{ __('A quick summary') }}"
+                class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+            >{{ old('description') }}</textarea>
             <textarea
                 name="content"
                 placeholder="{{ __('What will we write about today?') }}"
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-            >{{ old('message') }}</textarea>
+            >{{ old('content') }}</textarea>
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
             <x-primary-button class="mt-4">{{ __('Post Article') }}</x-primary-button>
         </form>
@@ -55,7 +60,8 @@
                               </x-dropdown>
                           @endif
                         </div>
-                        <p class="mt-4 text-xl text-gray-900">{{ $article->title }}</h1>
+                        <p class="mt-4 text-xl text-gray-900">{{ $article->title }}</p>
+                          <p class="mt-4 text-lg text-gray-900">{{ $article->description }}</p>
                         <p class="mt-4 text-lg text-gray-900">{{ $article->content }}</p>
                     </div>
                 </div>

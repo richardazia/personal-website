@@ -39,6 +39,7 @@ class ArticleController extends Controller
     {
         $validated = $request->validate([
           'title' => 'required|string|max:300',
+          'description' => 'required|string|max:900',
           'content' => 'required|string|max:3000',
         ]);
 
@@ -86,6 +87,7 @@ class ArticleController extends Controller
 
         $validated = $request->validate([
           'title' => 'required|string|max:300',
+          'description' => 'required|string|max:900',
           'content' => 'required|string|max:3000',
         ]);
 
