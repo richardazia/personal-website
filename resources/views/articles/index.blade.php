@@ -1,3 +1,13 @@
+<script setup>
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
+
+defineProps(['article']);
+
+</script>
+
 <x-app-layout>
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
         <form method="POST" action="{{ route('articles.store') }}">
@@ -26,7 +36,8 @@
                         <div class="flex justify-between items-center">
                             <div>
                                 <span class="text-gray-800">{{ $article->user->name }}</span>
-                                <small class="ml-2 text-sm text-gray-600">{{ $article->created_at->format('j M Y, g:i a') }}</small>
+                                <!-- <small class="ml-2 text-sm text-gray-600">{{ $article->created_at->format('j M Y, g:i a') }}</small> -->
+                                <small class="ml-2 text-sm text-gray-600">@{{ dayjs(article.created_at).fromNow(); }}</small>
                                 @unless ($article->created_at->eq($article->updated_at))
                                     <small class="text-sm text-gray-600"> &middot; {{ __('edited') }}</small>
                                 @endunless
