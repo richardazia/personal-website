@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeographyController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,10 @@ Route::get('/dashboard', function () {
 
 Route::resource('articles', ArticleController::class)
   ->only(['index', 'store', 'edit', 'update', 'destroy'])
+  ->middleware(['auth', 'verified']);
+
+Route::resource('geographies', GeographyController::class)
+  ->only(['index', 'store'])
   ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {

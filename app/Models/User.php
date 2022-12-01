@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
       return $this->hasMany(Article::class);
     }
+
+    public function geographies()
+    {
+      return $this->hasMany(Geography::class);
+    }
 }

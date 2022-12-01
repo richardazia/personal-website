@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')">
                       {{ __('Surfing the World Wide Waves') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('geographies.index')" :active="request()->routeIs('geographies.index')">
+                      {{ __('Geography') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -75,6 +78,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')">
                 {{ __('articles') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('geographies.index')" :active="request()->routeIs('geographies.index')">
+                {{ __('Geography') }}
             </x-responsive-nav-link>
         </div>
 
