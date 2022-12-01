@@ -60,9 +60,9 @@
                               </x-dropdown>
                           @endif
                         </div>
-                        <p class="mt-4 text-xl text-gray-900">{{ $article->title }}</p>
-                          <p class="mt-4 text-lg text-gray-900">{{ $article->description }}</p>
-                        <p class="mt-4 text-lg text-gray-900">{{ $article->content }}</p>
+                        <p class="mt-4 text-xl text-gray-900">{!!$article->title !!}</p>
+                          <p class="mt-4 text-lg text-gray-900">{!! $article->description !!}</p>
+                        <p class="mt-4 text-lg text-gray-900">{!! $article->content !!}</p>
                     </div>
                 </div>
             @endforeach
