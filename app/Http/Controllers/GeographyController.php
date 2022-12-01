@@ -14,7 +14,9 @@ class GeographyController extends Controller
      */
     public function index()
     {
-        return view('geographies.index');
+        return view('geographies.index', [
+          'geographies' => Geography::with('user')->latest()->get(),
+        ]);
     }
 
     /**
@@ -64,7 +66,11 @@ class GeographyController extends Controller
      */
     public function edit(Geography $geography)
     {
-        //
+        $this->authorize('update', $geography);
+
+        return view('geographies.edit', [
+          'geography' => $geography,
+        ]);
     }
 
     /**
@@ -76,7 +82,16 @@ class GeographyController extends Controller
      */
     public function update(Request $request, Geography $geography)
     {
-        //
+        $this->authorize('update', $geography);
+
+        $validated = $request->validate([
+          'title' => 'required|string|max:120',
+          'content' => 'required|string',
+        ]);
+
+        $geography->update($validated);
+
+        return redirect(route('geographies.index'));
     }
 
     /**

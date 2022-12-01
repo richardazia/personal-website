@@ -29,8 +29,8 @@ Route::resource('articles', ArticleController::class)
   ->middleware(['auth', 'verified']);
 
 Route::resource('geographies', GeographyController::class)
-  ->only(['index', 'store'])
-  ->middleware(['auth', 'verified']);
+  ->only(['index', 'store', 'edit', 'update'])
+  ->middleware(['auth', 'verified', ]);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

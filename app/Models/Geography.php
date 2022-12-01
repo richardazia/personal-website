@@ -13,4 +13,9 @@ class Geography extends Model
       'title',
       'content',
     ];
+
+    public function user()
+    {
+      return $this->belongsTo(User::class);
+    }
 }
