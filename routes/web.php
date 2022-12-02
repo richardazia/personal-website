@@ -29,7 +29,7 @@ Route::resource('articles', ArticleController::class)
   ->middleware(['auth', 'verified']);
 
 Route::resource('geographies', GeographyController::class)
-  ->only(['index', 'store', 'edit', 'update'])
+  ->only(['index', 'store', 'edit', 'update', 'destroy'])
   ->middleware(['auth', 'verified', ]);
 
 Route::middleware('auth')->group(function () {

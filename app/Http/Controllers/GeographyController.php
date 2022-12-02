@@ -102,6 +102,10 @@ class GeographyController extends Controller
      */
     public function destroy(Geography $geography)
     {
-        //
+        $this->authorize('delete', $geography);
+
+        $geography->delete();
+
+        return redirect(route('geographies.index'));
     }
 }

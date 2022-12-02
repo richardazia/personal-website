@@ -65,7 +65,7 @@ class GeographyPolicy
      */
     public function delete(User $user, Geography $geography)
     {
-        //
+        return $this->update($user, $geography);
     }
 
     /**
