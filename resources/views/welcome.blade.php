@@ -59,8 +59,8 @@
 
                             <p> Currently a work in progress</p>
 
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
+                            <a href="https://github.com/richardazia/personal-website" class="ml-1 underline">
+                                The repository. 
                             </a>
                         </div>
                     </div>
