@@ -117,7 +117,7 @@
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
 
-                            <p> Currently a work in progress</p>
+                            <p>Getting to grips with Laravel</p>
 
                             <a href="https://github.com/richardazia/personal-website" class="ml-1 underline">
                                 The repository.
@@ -130,6 +130,5 @@
                     </div>
                 </div>
             </div>
-        </div>
     </body>
 </html>

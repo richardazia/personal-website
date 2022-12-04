@@ -1,4 +1,7 @@
 <x-app-layout>
+  <div>
+    <h1 class="mt-4 text-2xl text-gray-900 text-center decoration-black font-bold">The Geography Section</h1>
+  </div>
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
       <form method="POST" action="{{ route('geographies.store') }}">
                   @csrf
@@ -15,7 +18,6 @@
                   <x-input-error :messages="$errors->get('message')" class="mt-2" />
                   <x-primary-button class="mt-4">{{ __('Geography') }}</x-primary-button>
       </form>
-
       <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
             @foreach ($geographies as $geography)
                 <div class="p-6 flex space-x-2">
@@ -24,6 +26,7 @@
                     </svg>
                     <div class="flex-1">
                         <div class="flex justify-between items-center">
+
                             <div>
                                 <span class="text-gray-800">{{ $geography->user->name }}</span>
                                 <small class="ml-2 text-sm text-gray-600">{{ $geography->created_at->format('j M Y, g:i a') }}</small>
