@@ -20,7 +20,7 @@
             >{{ old('description') }}</textarea>
             <textarea
                 name="content"
-                placeholder="{{ __('What will we write about today?') }}"
+                placeholder="{{ __('Content goes here. HTML and php is accepted.') }}"
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
             >{{ old('content') }}</textarea>
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
