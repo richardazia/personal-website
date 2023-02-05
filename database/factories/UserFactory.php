@@ -2,8 +2,23 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Post;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+$user = User::factory()->create();
+
+$users = User::factory()->count(5)->suspended()->make();
+
+$user = User::factory()->create([
+    'name' => 'Mélodie',
+]);
+
+// With post relationship
+$user = User::factory()
+    ->has(Post::factory()->count(4))
+    ->create();
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -36,5 +51,14 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function configure()
+    {
+        return $this->afterMaking(function (User $user) {
+
+        })->afterCreating(function (User $user) {
+
+        });
     }
 }
